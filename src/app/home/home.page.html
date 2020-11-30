@@ -1,20 +1,57 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title>Internal security</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        <ion-icon slot="start" name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <div class="ion-text-center">
+    <h3>Citas</h3>
   </div>
+    <ion-list lines="yes">
+      <ion-item-sliding *ngFor="let contact of contacts">
+        <ion-item lines="yes" class="no-padding">
+          <ion-label>
+            <h2>{{ contact.nombre }}</h2>
+            <h2>{{ contact.tipo  }}{{ contact.numero }}</h2>
+            <h2>{{ contact.destino }}</h2>
+            <h2>{{ contact.fecha }}</h2>
+          </ion-label>
+        </ion-item>
+        <div class="centrado">
+          <ion-button  color="dark" routerLink = "{{contact.route}}">Comenzar Visita</ion-button>
+          <ion-button   Href="https://poly.google.com/view/8M3CS-ZVnxf">Ruta de Salida</ion-button>
+        </div>
+        
+  
+        <ion-item-options side="start" >
+          <ion-item-option [routerLink]="['/post',contact.key]">
+            <ion-icon slot="icon-only" name="pencil-outline">
+            </ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+  
+        <ion-item-options side="end" >
+          <ion-item-option  color="danger" (click)="delete(contact.key)">
+            <ion-icon slot="icon-only" name="trash">
+            </ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+      
+    </ion-list>
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button color="dark">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-list side="start">
+        <ion-button routerLink="/post" color="medium">Agregar Cita</ion-button>
+      </ion-fab-list>
+  
+    </ion-fab>
 </ion-content>

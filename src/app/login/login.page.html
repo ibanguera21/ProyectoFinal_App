@@ -1,0 +1,39 @@
+
+
+<ion-content>
+  <!--  BACKGROUND  -->
+<div class="bg-login">
+  <!--  OVERLAY  -->
+  <div class="overlay">
+   <!--  LOGO  -->
+    <div class="center padding-top-30">
+      <img src="../../assets/imagenes/security.png" class="security-login"> 
+    </div>
+     <!--  login  -->
+    <div class="padding-20" >
+       <ion-item class="bg-transparent no-padding">
+          <ion-label stacked class="blancohueso light" position="floating" >Email</ion-label>
+          <ion-input type="email" [(ngModel)]="user.email" ></ion-input>
+        </ion-item>
+        <ion-item class="bg-transparent no-padding mg-top-10">
+          <ion-label stacked class="blancohueso light" position= "floating">Password</ion-label>
+          <ion-input type="password"  [(ngModel)]="user.password" ></ion-input>
+        </ion-item>
+         <ion-row>
+           <ion-col>
+             <ion-button class="mg-top-5" shape="round"
+             type="submit" color="dark" (click)="login()"
+             expand="block">Iniciar sesión</ion-button>
+           </ion-col>
+         </ion-row>
+         <ion-row>
+          <ion-col>
+            <p class="ion-text-center medium mg-top-5"> <a routerLink="/forgot-password">¿Olvidaste tu Contraseña?</a> </p>
+            <p class="form__link" class="ion-text-center medium mg-top-5">¿No tienes una cuenta? <a routerLink="/register">Registrate ahora!</a> </p>
+          </ion-col>
+         </ion-row>
+         
+    </div>
+  </div>
+</div>
+</ion-content>

@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title>Internal security</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="dark">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="start">
+      <ion-button routerLink="/nuevaruta" color="medium">Solicitar nueva ruta</ion-button>
+    </ion-fab-list>
+
+  </ion-fab>
+
+  <ion-card>
+    <img src="./../assets/imagenes/admisiones.jpg"/>
+    <ion-card-header color="dark">
+      <ion-card-title>Admisiones</ion-card-title>
+      <h1>{{ time | async }}</h1>
+      <ion-button (click)="startTimer(30)" Href="https://poly.google.com/view/5weexHeU2Dc"  color="medium">Comenzar ruta</ion-button>
+    </ion-card-header>
+  </ion-card>
+   
+</ion-content>

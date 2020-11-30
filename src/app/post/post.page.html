@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="dark">
+    <ion-title class="ion-text">Agregar Cita</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item>
+    <ion-label position= "floating">Nombres y Apellidos</ion-label>
+      <ion-input type="text" [(ngModel)]="nombre" required></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position= "floating"  >Tipo de Documento:</ion-label>
+    <ion-select interface="action-sheet" class="custom-options" [(ngModel)]="tipo">
+      <ion-select-option value="C.C:">Cédula de Ciudadania</ion-select-option>
+      <ion-select-option value="C.E:">Cédula de Extranjería</ion-select-option>
+      <ion-select-option value="T.I:">Tarjeta de Identidad</ion-select-option>
+      <ion-select-option value="Pasaporte:">Pasaporte</ion-select-option>
+    </ion-select> 
+  </ion-item>
+  <ion-item>
+    <ion-label position= "floating">Número de Identificacíon</ion-label>
+      <ion-input type="text" [(ngModel)]="numero" required></ion-input>
+  </ion-item>
+  <ion-item> 
+    <ion-label position= "floating"> Destino: </ion-label>
+    <ion-select interface="action-sheet" class="custom-options" [(ngModel)]="destino" >
+      <ion-select-option value="Destino:Admisiones">Admisiones</ion-select-option>
+      <ion-select-option value="Destino:Financiamiento">Financiamiento</ion-select-option>
+      <ion-select-option value="Destino:Bloque k">Bloque k</ion-select-option>
+      <ion-select-option value="Destino:Coliseo">Coliseo</ion-select-option>
+    </ion-select >
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Fecha:</ion-label>
+    <ion-input type="date" [(ngModel)]="fecha" required></ion-input>
+ </ion-item>
+ 
+    <ion-button  *ngIf="contactId==undefined"  (click)="save()"  expand="block" class="ion-padding" color="dark">Agendar</ion-button>
+    <ion-button  *ngIf="contactId!=undefined"   (click)="update()" expand="block"  class="ion-padding" color="dark">Actualizar</ion-button>
+</ion-content>
+
